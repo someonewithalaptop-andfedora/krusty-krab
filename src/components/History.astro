@@ -1,0 +1,30 @@
+---
+// History section component - El Secreto Mejor Guardado
+---
+
+<section id="historia" class="bg-blue-950 py-32 overflow-hidden relative">
+  <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+    <h2 class="krusty-title text-white text-5xl mb-12">
+      <i class="fa-solid fa-key mr-4"></i> El Secreto Mejor Guardado
+    </h2>
+    <div class="bg-white/5 border border-white/10 p-12 rounded-3xl backdrop-blur-xl relative reveal">
+      <i class="fa-solid fa-quote-left text-blue-500/30 text-7xl absolute top-6 left-6"></i>
+      <p class="text-2xl text-blue-100 italic font-light leading-relaxed mb-8">
+        "Preparamos cada hamburguesa como si fuera la última, con ingredientes que solo el Capitán sabe conseguir. El ingrediente más importante es, por supuesto, tu dinero."
+      </p>
+      <p class="krusty-title text-red-500 text-xl">- Don Cangrejo</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

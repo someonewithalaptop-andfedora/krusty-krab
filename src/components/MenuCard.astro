@@ -1,0 +1,52 @@
+---
+// MenuCard component - Tarjeta individual de producto
+interface Props {
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+}
+
+const { title, description, price, image } = Astro.props;
+---
+
+<div class="glass-card rounded-[40px] p-4 flex flex-col items-center text-center reveal">
+  <div class="w-full h-64 rounded-[30px] overflow-hidden mb-6 bg-yellow-50">
+    <img 
+      src={image} 
+      alt={title} 
+      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+    />
+  </div>
+  <h3 class="krusty-title text-3xl text-gray-800 mb-2">{title}</h3>
+  <p class="text-gray-500 font-medium px-4 mb-6 italic">{description}</p>
+  <div class="flex items-center justify-between w-full px-6 mt-auto">
+    <span class="text-4xl font-black text-blue-900">${price}</span>
+    <button 
+      onclick="animateOrder(this)" 
+      class="bg-blue-600 text-white p-4 w-14 h-14 rounded-full hover:bg-blue-700 transition-all shadow-lg hover:rotate-12 flex items-center justify-center"
+    >
+      <i class="fa-solid fa-cart-shopping"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  window.animateOrder = function(btn: HTMLElement) {
+    const icon = btn.querySelector('i');
+    if (!icon) return;
+    
+    const originalClass = icon.className;
+    icon.className = 'fa-solid fa-spinner fa-spin';
+    
+    const toast = document.getElementById('toast');
+    if (toast) {
+      toast.style.transform = 'translateY(0)';
+      
+      setTimeout(() => { 
+        toast.style.transform = 'translateY(150%)'; 
+        icon.className = originalClass;
+      }, 3000);
+    }
+  };
+</script>

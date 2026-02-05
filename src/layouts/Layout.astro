@@ -1,0 +1,170 @@
+---
+import '../styles/global.css'
+---
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="El Crustáceo Cascarudo - Restaurante premium de comida marina. Disfruta de nuestras exclusivas recetas y experiencia gastronómica única." />
+		<meta name="keywords" content="restaurante marino, comida premium, crustáceos frescos, experiencia gastronómica" />
+		<meta name="author" content="El Crustáceo Cascarudo" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content="El Crustáceo Cascarudo - Experiencia Premium" />
+		<meta property="og:description" content="Restaurante premium especializado en crustáceos y comida marina de alta calidad." />
+		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://crustaceo-cascarudo.netlify.app" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>El Crustáceo Cascarudo - Experiencia Premium</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet" />
+	</head>
+	<body class="overflow-x-hidden">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--krusty-red: #ef4444;
+		--krusty-dark-red: #991b1b;
+		--ocean-deep: #0c4a6e;
+		--ocean-light: #e0f2fe;
+	}
+
+	body {
+		font-family: 'Outfit', sans-serif;
+		background-color: var(--ocean-light);
+		scroll-behavior: smooth;
+	}
+
+	.krusty-title {
+		font-family: 'Luckiest Guy', cursive;
+		letter-spacing: 0.1em;
+	}
+
+	#main-nav {
+		transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.nav-expanded {
+		width: 100%;
+		max-width: 100%;
+		top: 0;
+		left: 0;
+		transform: translateX(0);
+		border-radius: 0;
+		padding: 1.5rem 4rem;
+		background-color: rgba(12, 74, 110, 0.3);
+		backdrop-filter: blur(8px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		color: white;
+	}
+
+	.nav-expanded .nav-link {
+		color: white;
+	}
+	.nav-expanded .nav-logo-text {
+		color: white;
+	}
+	.nav-expanded .nav-logo-bg {
+		background-color: white;
+		color: var(--krusty-red);
+	}
+
+	.nav-compact {
+		width: 90%;
+		max-width: 900px;
+		top: 1.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0.75rem 1.5rem;
+		background-color: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 9999px;
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+		color: #374151;
+	}
+
+	.nav-compact .nav-link {
+		color: #374151;
+	}
+	.nav-compact .nav-logo-text {
+		color: var(--krusty-red);
+	}
+	.nav-compact .nav-logo-bg {
+		background-color: var(--krusty-red);
+		color: white;
+	}
+
+	.nav-link:hover {
+		color: var(--krusty-red) !important;
+	}
+
+	.ocean-bg {
+		background: linear-gradient(180deg, #0ea5e9 0%, #0c4a6e 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.bubble {
+		position: absolute;
+		bottom: -50px;
+		background: rgba(255, 255, 255, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 50%;
+		pointer-events: none;
+		filter: blur(1px);
+	}
+
+	.glass-card {
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+
+	.glass-card:hover {
+		transform: translateY(-15px);
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+		background: rgba(255, 255, 255, 1);
+	}
+
+	.btn-patty {
+		position: relative;
+		transition: all 0.2s;
+		background: var(--krusty-red);
+		border-bottom: 6px solid var(--krusty-dark-red);
+	}
+
+	.btn-patty:active {
+		border-bottom-width: 0;
+		transform: translateY(6px);
+	}
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.reveal.active {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.hero-entry {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	.studio-link {
+		transition: all 0.3s ease;
+		position: relative;
+	}
+	.studio-link:hover {
+		color: var(--krusty-red);
+		text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+	}
+</style>

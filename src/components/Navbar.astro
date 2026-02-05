@@ -1,0 +1,31 @@
+---
+// Navbar component - Navegación flotante dinámica
+---
+
+<nav id="main-nav" class="fixed z-50 flex justify-between items-center nav-expanded">
+  <div class="flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <div id="nav-logo" class="w-10 h-10 rounded-full flex items-center justify-center transition-all group-hover:rotate-12 nav-logo-bg">
+      <i class="fa-solid fa-anchor text-xl"></i>
+    </div>
+    <span id="nav-title" class="krusty-title text-lg hidden sm:block nav-logo-text">Crustáceo Cascarudo</span>
+  </div>
+  <div class="flex gap-8 font-bold">
+    <a href="#menu" class="nav-link transition-colors">Menú</a>
+    <a href="#historia" class="nav-link transition-colors">Secreto</a>
+    <a href="#contacto" class="nav-link transition-colors">Ubicación</a>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('main-nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.remove('nav-expanded');
+      navbar.classList.add('nav-compact');
+    } else {
+      navbar.classList.add('nav-expanded');
+      navbar.classList.remove('nav-compact');
+    }
+  });
+</script>
